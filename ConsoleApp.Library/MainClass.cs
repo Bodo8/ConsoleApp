@@ -22,7 +22,7 @@ namespace ConsoleApp.Library
 
         public void RunApp()
         {
-            List<ImportedObject> importeds = _sourceProcessor.GetItems("Assets\\data.csv");
+            List<ImportedObject> importeds = _sourceProcessor.GetItems("assets\\data.csv");
             List<ImportedObject> cleanRows = importeds.Where(x => x.ParentName.Length > 0).ToList();
             Dictionary<string, Dictionary<string, List<ImportedObject>>> sortedObjects = _importedObjectService.GetSortedImportedObjects(cleanRows);
 
@@ -40,7 +40,10 @@ namespace ConsoleApp.Library
                     Console.WriteLine($"\tTable '{item.Key}' ({item.Value.Count} columns)");
 
                     foreach (var table in item.Value)
-                        Console.WriteLine($"\t\tColumn '{table.Name}' with {table.DataType} data type {(table.IsNullable == true ? "accepts nulls" : "with no nulls")}");
+                    {
+                        Console.WriteLine($"\t\tColumn '{table.Name}' with {table.DataType} data type" +
+                            $" {(table.IsNullable == true ? "accepts nulls" : "with no nulls")}");
+                    }
 
                 }
             }

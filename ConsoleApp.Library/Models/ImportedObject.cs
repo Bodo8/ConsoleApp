@@ -15,5 +15,6 @@ namespace ConsoleApp.Library.Models
         public string ParentType { get; set; }
         public string DataType { get; set; }
         public bool? IsNullable { get; set; }
+        public double? NumberOfChildren { get; set; }
     }
 }
