@@ -67,7 +67,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
             var actual = _sut.GetSortedImportedObjects(importeds);
 
             //assert
-            Assert.AreEqual(2, actual["db3"].Count);
+            Assert.AreEqual(1, actual["db3"].Count);
         }
 
         [TestMethod]
