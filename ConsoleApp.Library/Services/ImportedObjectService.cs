@@ -13,16 +13,8 @@ namespace ConsoleApp.Library.Services
     {
         public Dictionary<string, Dictionary<string, List<ImportedObject>>> GetSortedImportedObjects(List<ImportedObject> importeds)
         {
-            var databases = importeds
-                .Where(x => x.ParentType == "DATABASE")
-                .GroupBy(x => x.ParentName).ToDictionary(
-                x => x.Key, x => x.ToList());
-
-            var tabsAll = importeds
-                .Where(x => x.ParentType == "TABLE")
-                .GroupBy(x => x.ParentName).ToDictionary(
-                x => x.Key, x => x.ToList());
-
+            Dictionary<string, List<ImportedObject>> databases = GetDatabases(importeds);
+            Dictionary<string, List<ImportedObject>> tabsAll = GetAllTablesData(importeds);
             Dictionary<string, Dictionary<string, List<ImportedObject>>> result = new Dictionary<string, Dictionary<string, List<ImportedObject>>>();
 
             foreach (var db in databases)
@@ -30,7 +22,7 @@ namespace ConsoleApp.Library.Services
                 Dictionary<string, List<ImportedObject>> tabs = new Dictionary<string, List<ImportedObject>>();
 
                 foreach (var item in db.Value)
-                { 
+                {
                     foreach (var tab in tabsAll)
                     {
                         if (tab.Key == item.Name)
@@ -41,6 +33,22 @@ namespace ConsoleApp.Library.Services
             }
 
             return result;
+        }
+
+        private static Dictionary<string, List<ImportedObject>> GetAllTablesData(List<ImportedObject> importeds)
+        {
+            return importeds
+                            .Where(x => x.ParentType == "TABLE")
+                            .GroupBy(x => x.ParentName).ToDictionary(
+                            x => x.Key, x => x.ToList());
+        }
+
+        private static Dictionary<string, List<ImportedObject>> GetDatabases(List<ImportedObject> importeds)
+        {
+            return importeds
+                            .Where(x => x.ParentType == "DATABASE")
+                            .GroupBy(x => x.ParentName).ToDictionary(
+                            x => x.Key, x => x.ToList());
         }
     }
 }
