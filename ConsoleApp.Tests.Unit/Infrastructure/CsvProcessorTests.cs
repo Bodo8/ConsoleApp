@@ -22,7 +22,7 @@ namespace ConsoleApp.Library.Infrastructure.Tests.Unit
         }
 
         [TestMethod]
-        public void GetItems_Shold_Return_ExpectedCountItems()
+        public void GetItems_ReturnsExpectedCountItems()
         {
             //arrange
             var expected = 1424;
@@ -35,7 +35,7 @@ namespace ConsoleApp.Library.Infrastructure.Tests.Unit
         }
 
         [TestMethod]
-        public void GetItems_Shold_Be_ExpectedImportedObject()
+        public void GetItems_ReturnsExpectedImportedObject()
         {
             //arrange
             var expectedObj = new ImportedObject()
@@ -59,7 +59,7 @@ namespace ConsoleApp.Library.Infrastructure.Tests.Unit
         }
 
         [TestMethod]
-        public void GetItems_Shold_Return_ExpectedFieldDataType()
+        public void GetItems_ReturnsExpectedFieldDataType()
         {
             //arrange
             var expected = "nvarchar";

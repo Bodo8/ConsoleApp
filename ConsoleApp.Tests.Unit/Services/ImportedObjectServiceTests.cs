@@ -19,7 +19,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
         }
 
         [TestMethod]
-        public void GetSortedImportedObjects_Shold_Return_ThreeDatabases()
+        public void GetSortedImportedObjects_ReturnsThreeDatabases()
         {
             //arrange
             List<ImportedObject> importeds = GetImported();
@@ -32,7 +32,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
         }
 
         [TestMethod]
-        public void GetSortedImportedObjects_Shold_Return_TwoTablesInDBOne()
+        public void GetSortedImportedObjects_ReturnsTwoTablesInDBOne()
         {
             //arrange
             List<ImportedObject> importeds = GetImported();
@@ -45,7 +45,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
         }
 
         [TestMethod]
-        public void GetSortedImportedObjects_Shold_Return_TwoTablesInDBTwo()
+        public void GetSortedImportedObjects_ReturnsTwoTablesInDBTwo()
         {
             //arrange
             List<ImportedObject> importeds = GetImported();
@@ -58,7 +58,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
         }
 
         [TestMethod]
-        public void GetSortedImportedObjects_Shold_Return_TwoTablesInDbTthree()
+        public void GetSortedImportedObjects_ReturnsTwoTablesInDbTthree()
         {
             //arrange
             List<ImportedObject> importeds = GetImported();
@@ -71,7 +71,7 @@ namespace ConsoleApp.Library.Services.Tests.Unit
         }
 
         [TestMethod]
-        public void GetSortedImportedObjects_Shold_Return_ThreeColumnInTableInDBOne()
+        public void GetSortedImportedObjects_ReturnsThreeColumnInTableInDBOne()
         {
             //arrange
             List<ImportedObject> importeds = GetImported();
